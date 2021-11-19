@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quick Tools</title>
+<link rel="stylesheet" type="text/css" href="quickTools.css">
+<script src="quicktools.js" defer></script>
+<!--<link rel="stylesheet" type="text/css" href="minifier.css">
+<link rel="stylesheet" type="text/css" href="compressor.css">
+<link rel="stylesheet" type="text/css" href="calculator.css">
+<script src="main.js" defer></script>
+<script src="minifier.js" defer></script>
+<script src="compressor.js" defer></script>
+<script src="calculator.js" defer></script>-->
+</head>
+<body>
+    <div id="quickTools">
+        <input type="radio" name="tabRAD" id="minifierRAD" checked="true" />
+        <input type="radio" name="tabRAD" id="compressorRAD"  />
+        <input type="radio" name="tabRAD" id="unitCalculatorRAD" />
+        <input type="radio" name="tabRAD" id="paletteGeneratorRAD" />
+        <input type="radio" name="tabRAD" id="colorConverterRAD" />
+        <input type="radio" name="tabRAD" id="othersRAD" />
+        <input type="checkbox" id="toolSettingsRAD" />
+        <label for="toolSettingsRAD" id="toolsSettingsLabel">
+            <svg>
+                <path fill="363636" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+            </svg>
+        </label>
+        <section id="toolTabs">
+            <label for="minifierRAD" class="toolTab" id="minifierTab">Minifier</label>
+            <label for="compressorRAD" class="toolTab" id="compressorTab">Compressor</label>
+        </section>
+        <section class="htmlTool" id="minifier">
+            <h4>Minifier</h4>
+            <p>
+                <strong>How it works ?</strong><br><br>
+                Just copy your code into the left input and let the tool do all the work ^-^.<br>
+                Simple, no worries, no stress ! ;)<br><br>
+                Not sure how to start? <a class="shortDemo">click to watch a short demo</a>
+            </p>
+            <div id="minifierInputContainer">
+                <textarea id="minifierInput" autocomplete="false" spellCheck="false"></textarea>
+                <div>
+                    <div class="toolOptions" id="minifierOptions">
+                        <label for="minifyOptions" class="toolOptionsLabel"> minify: </label>
+                        <select id="minifyOptions">
+                            <option value="1" selected>all</option>
+                            <option value="2">class (html)</option>
+                            <option disabled>- more to come -</option>
+                        </select>
+                        <label for="minifierCustomClass" class="customClassLabel"> type your class </label>
+                        <input type="text" id="minifierCustomClass" placeholder="yourCustomClass" />
+                    </div>
+                    <div class="toolButtons">
+                        <button class="smallButton copy" id="copyMinifierInput">
+                            copy input
+                        </button>
+                        <button class="smallButton reset" id="resetMinifierInput">
+                            reset input
+                        </button>      
+                        <button class="mediumButton" id="minifyButton">MINIFY ME</button>
+                    </div>
+                </div>
+            </div>            
+            <div id="minifierOutputContainer">
+                <textarea id="minifierOutput" autocomplete="false" spellCheck="false" disabled></textarea>
+                <div class="toolButtons">
+                    <button class="smallButton copy" id="copyMinifierOutput">
+                        copy input
+                    </button>
+                    <button class="smallButton reset" id="resetMinifierOutput">
+                        reset input
+                    </button>   
+                </div>             
+            </div>
+        </section>
+        <section class="htmlTool" id="compressor">
+            <h4>Compressor</h4>
+            <p>
+                <strong>How it works ?</strong><br><br>
+                Just copy your code into the left input and let the tool do all the work ^-^.<br>
+                Simple, no worries, no stress ! ;)<br><br>
+                Not sure how to start? <a class="shortDemo">click to watch a short demo</a>
+            </p>
+            <div id="compressorInputContainer">
+                <textarea id="compressorInput" autocomplete="false" spellCheck="false"></textarea>
+                <div>
+                    <div class="toolOptions" id="compressorOptions">
+                        <label for="compressOptions" class="toolOptionsLabel"> compress: </label>
+                        <select id="compressOptions">
+                            <option value="1" selected>all</option>
+                            <option value="2">class (html)</option>
+                            <option disabled>- more to come -</option>
+                        </select>
+                        <label for="compressorCustomClass" class="customClassLabel"> type your class </label>
+                        <input type="text" id="compressorCustomClass" placeholder="yourCustomClass" />
+                    </div>
+                    <div class="toolButtons">
+                        <button class="smallButton copy" id="copyCompressorInput">
+                            copy input
+                        </button>
+                        <button class="smallButton reset" id="resetCompressorInput">
+                            reset input
+                        </button>   
+                        <button class="mediumButton" id="compressButton">COMPRESS ME</button> 
+                    </div>
+                </div>
+            </div>            
+            <div id="compressorOutputContainer">
+                <textarea id="compressorOutput" autocomplete="false" spellCheck="false" disabled></textarea>
+                <div class="toolButtons">
+                    <button class="smallButton copy" id="copyCompressorOutput">
+                        copy input
+                    </button>
+                    <button class="smallButton reset" id="resetCompressorOutput">
+                        reset input
+                    </button>  
+                </div>              
+            </div>
+        </section>  
+    </div>
+</body>
+</html>

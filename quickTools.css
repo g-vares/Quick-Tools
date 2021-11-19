@@ -1,0 +1,292 @@
+/* 
+COLOR PALETTE:
+
+    light gray: #f2f2f2; 
+    dark gray: #353535;
+    orange: #ff770;
+    warning: #FF1731;
+    ok: #00977C
+*/
+
+/* global styles */
+* {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    overflow: hidden;
+
+    font-family: 'Consolas';
+    font-size: 0;
+    line-height: 0;
+    
+    resize: none;
+    box-sizing: border-box;
+    pointer-events: none;
+    user-select: none;
+
+    background: transparent;
+}
+
+:is(button, textarea, label, a, select, option, #toolSettingsLabel) {
+    pointer-events: all;
+}
+
+:is(button, p, label, textarea, select ,select option, input[type="number"], input[type="text"]) {
+    font-size: 2.4vh;
+    line-height: 2.4vh;
+}
+
+input[name="tabRAD"] {
+    position: absolute;
+    visibility: hidden;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    position: absolute;
+    visibility: hidden;
+}
+
+#quickTools {
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Tools sections styling */
+.htmlTool {
+    display: none;
+    padding: 0vh 1.5vw;
+    height: 100%;
+    overflow-y: scroll;
+    background: #ffffff
+}
+
+.htmlTool::-webkit-scrollbar {
+    display: none;
+  }
+
+.htmlTool h4 {
+    margin: 5vh 0vw 2.5vh 0vw;
+    font-size: 5vh;
+    line-height: 3vh;
+    font-weight: normal;
+    overflow: visible; 
+}
+
+.htmlTool h5 {
+    margin: 0vh 0vw 1.5vh 0vw;
+    font-size: 3vh;
+    line-height: 3vh;
+    font-weight: normal;
+    overflow: visible; 
+}
+
+.htmlTool p {
+    width: 47.5%;
+    margin: 2.5vh 0vw 6vh 0vw;
+    font-size: 2.1vh;
+    line-height: 2.4vh;
+}
+
+.htmlTool p a {
+    text-decoration: underline;
+    text-decoration-color: #f70;
+    color: #f70;
+    font-size: 2.1vh;
+    line-height: 2.4vh;
+}
+
+.htmlTool p strong {
+    font-size: 2.1vh;
+    line-height: 2.4vh;
+    text-transform: uppercase;
+}
+
+.htmlTool p a:hover {
+    font-weight: bold;
+}
+
+/* Tabs */
+#toolTabs {
+    background: #ffffff;
+}
+
+.toolTab {
+    display: inline-block;
+    padding: 1vh 1vw;
+    color: #363636;
+    border-right: 1px solid rgb(252, 183, 123);
+    border-left: 1px solid rgb(252, 183, 123);
+    background: #f4f4f4;
+}
+
+.toolTab:hover {
+    background: #ffffff;
+    color: #000;
+}
+
+#minifierRAD:checked ~ #minifier {
+    display: block;
+}
+
+#minifierRAD:checked ~ #toolTabs #minifierTab {
+    color: #000;
+    background: #ffffff;
+}
+
+#compressorRAD:checked ~ #compressor {
+    display: block;
+}
+
+#compressorRAD:checked ~ #toolTabs #compressorTab {
+    color: #000;
+    background: #ffffff;
+}
+
+/* tool settings styling */
+#toolsSettingsLabel {
+    position: absolute;
+    top: 3.7vh; 
+    right: 2vw;
+    width: 4vw;
+    height: 4vw;
+    z-index: 999;
+    overflow: visible;
+}
+
+#toolsSettingsLabel svg {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    margin: auto;
+    width: 3vw;
+    height: 3vw;
+}
+
+#toolsSettingsLabel svg path {
+    width: 3vw;
+    height: 3vw;
+}
+
+#toolSettingsRAD:checked ~ #toolSettings {
+    transform: translate(-50%);
+}
+
+/* tool specific options styling */
+.toolOptions {
+    display: inline-block;
+    width: 40%;
+    padding: 2.4vh 0vw;
+    vertical-align: top;
+}
+
+.toolButtons {
+    display: inline-block;
+    width: 60%;
+    padding: 2.4vh 0vw;
+    vertical-align: top;
+    overflow: visible;
+}
+
+.toolOptions select {
+    display: inline-block;
+    padding: 1.25vh 0vw;
+}
+
+.customClassLabel {
+    display: none;
+}
+
+.toolOptions input {
+    display: none;
+    width: 60%;
+    padding: 1vh .5vw 0vh .5vw;
+    pointer-events: all;
+    border-bottom: 1px solid;
+}
+
+.toolOptions input:focus {
+    border-bottom: 2px solid #ff7700;
+}
+
+/* Minifier and compressor styling */
+#minifierInputContainer, #minifierOutputContainer, #compressorInputContainer, #compressorOutputContainer {
+    display: inline-block;
+    width: 47.5%;
+    vertical-align: top;
+    overflow: visible;
+}
+
+#minifierInputContainer, #compressorInputContainer {
+    margin-right: 5%; 
+}
+
+#minifierInputContainer .smallButton, #compressorInputContainer .smallButton, 
+#minifierOutputContainer .smallButton, #compressorOutputContainer .smallButton {
+    padding: 1.25vh 1vw;
+    margin-right: 1.5vw;
+    font-size: 2.1vh;
+    line-height: 2.4vh;
+    color: #353535;
+    border: 1px solid #353535;
+}
+
+#minifierInputContainer .smallButton.copy:hover, #compressorInputContainer .smallButton.copy:hover,
+#minifierOutputContainer .smallButton.copy:hover, #compressorOutputContainer .smallButton.copy:hover {
+    border: 1px solid #00977c;
+    color: #00977c;
+    transform: scale(1.1);
+}
+
+#minifierInputContainer .smallButton.reset:hover, #compressorInputContainer .smallButton.reset:hover, 
+#minifierOutputContainer .smallButton.reset:hover, #compressorOutputContainer .smallButton.reset:hover {
+    border: 1px solid #ff1731;
+    color: #ff1731;
+    transform: scale(1.1);
+}
+
+#minifierInputContainer .mediumButton, #compressorInputContainer .mediumButton, 
+#minifierOutputContainer .mediumButton, #compressorOutputContainer .mediumButton {
+    padding: 1.5vh 1.25vw;
+    color: #ffffff;
+    background: linear-gradient(-45deg, #363636 15%, #ff7700 50%, #363636 85%);
+    background-size: 500% 1000%;
+}
+
+#minifierInputContainer .mediumButton:hover, #compressorInputContainer .mediumButton:hover, 
+#minifierOutputContainer .mediumButton:hover, #compressorOutputContainer .mediumButton:hover {
+    transform: scale(1.1);
+    animation: flash 0.5s 0.25s ease-out forwards;
+}
+
+#compressorInputContainer .smallButton {
+    margin-right: 1vw;
+}
+
+/* minifier / compressor button animation */
+@keyframes flash {
+    0% {
+        background-position: 100% 100%;
+    }
+
+    25% {
+        background-position: 75% 75%;
+    }
+    50% {
+        background-position: 50% 50%;
+    }
+    75% {
+        background-position: 25% 25%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+#minifier div textarea, #compressor div textarea {
+    display: inline-block;
+    width: 100%;
+    height: 40vh;
+    background: #f4f4f4;
+}
+
